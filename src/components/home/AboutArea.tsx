@@ -1,27 +1,26 @@
-
-import React from 'react'
-import Count from '../common/Count'
+import React from "react";
+import Count from "../common/Count";
 
 const counter_data = [
   {
     id: 1,
-    title: 'Years Of Experience',
-    count: 8,
+    title: "Years Of Experience",
+    count: 4,
     cls: "plus",
   },
   {
     id: 2,
-    title: 'Completed Projects',
-    count: 1,
-    cls: "k-plus",
+    title: "Completed Projects",
+    count: 100,
+    cls: "plus",
   },
   {
     id: 3,
-    title: 'Client Satisfactions',
+    title: "Client Satisfactions",
     count: 90,
     cls: "percent",
   },
-]
+];
 
 export default function AboutArea() {
   return (
@@ -29,13 +28,18 @@ export default function AboutArea() {
       <section id="about" className="about-area">
         <div className="container">
           <div className="row">
-
             <div className="col-lg-3 col-sm-3">
               <h2 className="about-pre-title">About Me</h2>
             </div>
             <div className="col-lg-9 col-sm-9">
               <div className="about-content-part wow fadeInUp delay-0-2s">
-                <p>I am Nino Walker, a seasoned UX designer with over 8 years of experience in crafting intuitive and engaging digital experiences. My journey began with a background in graphic design, where I discovered my passion for understanding user behavior and translating it into seamless interactions.</p>
+                <p>
+                  I am a full stack developer and UI/UX designer with 4 years of
+                  experience. I specialize in building intuitive user interfaces
+                  and robust backend solutions, combining technical expertise
+                  with a strong sense of design to deliver seamless digital
+                  experiences.
+                </p>
               </div>
               <div className="hero-counter-area d-flex justify-content-between wow fadeInUp delay-0-4s">
                 {counter_data.map((item, i) => (
@@ -45,13 +49,12 @@ export default function AboutArea() {
                     </span>
                     <span className="counter-title">{item.title}</span>
                   </div>
-                ))} 
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </>
-  )
+  );
 }

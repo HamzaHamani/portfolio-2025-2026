@@ -8,7 +8,9 @@ interface SingleProjectAreaProps {
   projectData: ProjectData;
 }
 
-export default function SingleProjectArea({ projectData }: SingleProjectAreaProps) {
+export default function SingleProjectArea({
+  projectData,
+}: SingleProjectAreaProps) {
   // photoIndex
   const [photoIndex, setPhotoIndex] = useState(null);
   // image open state
@@ -19,7 +21,9 @@ export default function SingleProjectArea({ projectData }: SingleProjectAreaProp
     setIsOpen(true);
   };
   //  images
-  const image = projectData.projectImages.slice(0, 5).map((item) => item.image.src);
+  const image = projectData.projectImages
+    .slice(0, 5)
+    .map((item) => item.image.src);
 
   return (
     <>
@@ -47,6 +51,12 @@ export default function SingleProjectArea({ projectData }: SingleProjectAreaProp
                   <p>Project</p>
                   <h3>{projectData.category}</h3>
                 </div>
+                <div className="single-info cursor-pointer">
+                  <p> SiteLink</p>
+                  <a href={projectData.url} target="_blank">
+                    <h3>{projectData.url}</h3>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -54,9 +64,7 @@ export default function SingleProjectArea({ projectData }: SingleProjectAreaProp
               <div className="single-project-page-right wow fadeInUp delay-0-4s">
                 <h2>Description</h2>
                 {projectData.description.map((paragraph, index) => (
-                  <p key={index}>
-                    {paragraph}
-                  </p>
+                  <p key={index}>{paragraph}</p>
                 ))}
               </div>
             </div>

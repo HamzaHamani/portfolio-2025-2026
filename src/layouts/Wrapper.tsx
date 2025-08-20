@@ -1,21 +1,25 @@
-"use client";
 
-import { gsap } from "gsap";
-import React, { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
-import { animationCreate } from "@/utils/utils";
+"use client"
+
+import { gsap } from 'gsap';
+import React, { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation';
+import { animationCreate } from '@/utils/utils';
 import { scrollSmother } from "@/utils/scrollSmother";
-import ScrollToTop from "@/components/common/ScrollToTop";
-import SiteLoader from "@/components/common/SiteLoader";
+import ScrollToTop from '@/components/common/ScrollToTop';
 
-import { ScrollSmoother, ScrollTrigger } from "@/plugins";
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
+import {
+  ScrollSmoother,
+  ScrollTrigger,
+} from "@/plugins";
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger,);
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
 export default function Wrapper({ children }: any) {
+
   const pathname = usePathname();
 
   useEffect(() => {
@@ -41,7 +45,9 @@ export default function Wrapper({ children }: any) {
 
   useEffect(() => {
     scrollSmother();
+
   }, [pathname]);
+
 
   // round cursor
   const cursorBallRef = useRef<HTMLDivElement | null>(null);
@@ -58,57 +64,61 @@ export default function Wrapper({ children }: any) {
         x: e.clientX,
         y: e.clientY,
         opacity: 1,
-        ease: "power2.out",
+        ease: 'power2.out',
       });
     };
 
     // Hover effects for links
     const handleMouseEnter = () => {
-      cursorBall.classList.add("hovered");
+      cursorBall.classList.add('hovered');
       gsap.to(cursorBall, {
         duration: 0.3,
         scale: 2,
         opacity: 0,
-        ease: "power2.out",
+        ease: 'power2.out',
       });
     };
 
     const handleMouseLeave = () => {
-      cursorBall.classList.remove("hovered");
+      cursorBall.classList.remove('hovered');
       gsap.to(cursorBall, {
         duration: 0.3,
         scale: 1,
         opacity: 1,
-        ease: "power2.out",
+        ease: 'power2.out',
       });
     };
 
     // Attach event listeners
-    document.addEventListener("mousemove", handleMouseMove);
-    const hoverElements = document.querySelectorAll("a");
+    document.addEventListener('mousemove', handleMouseMove);
+    const hoverElements = document.querySelectorAll('a');
     hoverElements.forEach((element) => {
-      element.addEventListener("mouseenter", handleMouseEnter);
-      element.addEventListener("mouseleave", handleMouseLeave);
+      element.addEventListener('mouseenter', handleMouseEnter);
+      element.addEventListener('mouseleave', handleMouseLeave);
     });
 
     // Cleanup event listeners on unmount
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener('mousemove', handleMouseMove);
       hoverElements.forEach((element) => {
-        element.removeEventListener("mouseenter", handleMouseEnter);
-        element.removeEventListener("mouseleave", handleMouseLeave);
+        element.removeEventListener('mouseenter', handleMouseEnter);
+        element.removeEventListener('mouseleave', handleMouseLeave);
       });
     };
   }, []);
 
+
+
+
+
+
   return (
     <>
-      <SiteLoader />
       <div id="magic-cursor">
         <div id="ball" ref={cursorBallRef}></div>
       </div>
       {children}
       <ScrollToTop />
     </>
-  );
+  )
 }

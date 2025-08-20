@@ -3,13 +3,13 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { ExternalLink } from "lucide-react";
 
-import portfolio_img_1 from "@/assets/images/projects/work1.jpg";
+import portfolio_img_1 from "@/assets/images/projects/work1.webp";
 import portfolio_img_2 from "@/assets/images/projects/work2.jpg";
-import portfolio_img_3 from "@/assets/images/projects/work3.jpg";
-import portfolio_img_4 from "@/assets/images/projects/work4.jpg";
-import portfolio_img_5 from "@/assets/images/projects/work5.jpg";
-import portfolio_img_6 from "@/assets/images/projects/work6.jpg";
-import portfolio_img_7 from "@/assets/images/projects/work7.jpg";
+import portfolio_img_3 from "@/assets/images/projects/work3.webp";
+import portfolio_img_4 from "@/assets/images/projects/work4.webp";
+import portfolio_img_5 from "@/assets/images/projects/work5.webp";
+import portfolio_img_6 from "@/assets/images/projects/work6.webp";
+import portfolio_img_7 from "@/assets/images/projects/work7.webp";
 
 interface DataType {
   id: number;

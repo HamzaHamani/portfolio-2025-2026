@@ -27,7 +27,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_1,
     title: "FEGK - Management audit et qualite",
     category: "Full stack development",
-    link: "https://managementauditetqualite.com/",
+    link: "/single-project/managementauditequalite",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_2,
     title: "Cigprod",
     category: "Full stack development",
-    link: "https://cigprod.ma/",
+    link: "/single-project/cigprod",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_3,
     title: "Apex uit",
     category: "Front end development",
-    link: "https://apexuit.com/",
+    link: "/single-project/apexuit",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_4,
     title: "Houda lechheb",
     category: "Front end development",
-    link: "https://houdalechheb.com/",
+    link: "/single-project/houdalechheb",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_5,
     title: "Moonplay",
     category: "Front end development",
-    link: "https://moonplay.live/",
+    link: "/single-project/moonplay",
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_6,
     title: "Bookease",
     category: "Full stack development",
-    link: "https://bookeease.netlify.app/",
+    link: "/single-project/bookease",
   },
   {
     id: 7,
@@ -75,14 +75,14 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_7,
     title: "mdluxtravel",
     category: "Front end development",
-    link: "https://mdluxtravel.com/",
+    link: "/single-project/mdluxtravel",
   },
 ];
 
 export default function PortfolioArea() {
   const handleProjectClick = (link: string) => {
     if (link) {
-      window.open(link, "_blank");
+      window.location.href = link;
     }
   };
 

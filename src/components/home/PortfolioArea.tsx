@@ -8,6 +8,8 @@ import portfolio_img_2 from "@/assets/images/projects/work2.jpg";
 import portfolio_img_3 from "@/assets/images/projects/work3.jpg";
 import portfolio_img_4 from "@/assets/images/projects/work4.jpg";
 import portfolio_img_5 from "@/assets/images/projects/work5.jpg";
+import portfolio_img_6 from "@/assets/images/projects/work6.jpg";
+import portfolio_img_7 from "@/assets/images/projects/work7.jpg";
 
 interface DataType {
   id: number;
@@ -15,6 +17,7 @@ interface DataType {
   image: StaticImageData;
   title: string;
   category: string;
+  link: string;
 }
 
 const portfolio_data: DataType[] = [
@@ -22,36 +25,57 @@ const portfolio_data: DataType[] = [
     id: 1,
     col: "6",
     image: portfolio_img_1,
-    title: "Glasses of Cocktail",
-    category: "Branding",
+    title: "FEGK - Management audit et qualite",
+    category: "Full stack development",
+    link: "https://managementauditetqualite.com/",
   },
   {
     id: 2,
     col: "6",
     image: portfolio_img_2,
-    title: "A Branch with Flowers",
-    category: "Mockup",
+    title: "Cigprod",
+    category: "Full stack development",
+    link: "https://cigprod.ma/",
   },
   {
     id: 3,
     col: "4",
     image: portfolio_img_3,
-    title: "Orange Rose Flower",
-    category: "Video",
+    title: "Apex uit",
+    category: "Front end development",
+    link: "https://apexuit.com/",
   },
   {
     id: 4,
     col: "4",
     image: portfolio_img_4,
-    title: "Green Plant on a Desk",
-    category: "Branding",
+    title: "Houda lechheb",
+    category: "Front end development",
+    link: "https://houdalechheb.com/",
   },
   {
     id: 5,
     col: "4",
     image: portfolio_img_5,
-    title: "Orange Rose Flower",
-    category: "Mockup",
+    title: "Moonplay",
+    category: "Front end development",
+    link: "https://moonplay.live/",
+  },
+  {
+    id: 6,
+    col: "6",
+    image: portfolio_img_5,
+    title: "Bookease",
+    category: "Full stack development",
+    link: "https://bookeease.netlify.app/",
+  },
+  {
+    id: 7,
+    col: "6",
+    image: portfolio_img_7,
+    title: "mdluxtravel",
+    category: "Front end development",
+    link: "https://mdluxtravel.com/",
   },
 ];
 
@@ -75,7 +99,7 @@ export default function PortfolioArea() {
           <img src="assets/images/custom/work-scribble.svg" alt="custom" />
         </div>
         <div className="container-fluid">
-          <div className="row g-4 portfolio-grid">
+          <div className="row g-4 portfolio-grid ">
             {portfolio_data.map((item, i) => (
               <div
                 key={i}
@@ -86,7 +110,7 @@ export default function PortfolioArea() {
                   onClick={() => handleImagePopup(i)}
                   className="work-popup"
                 >
-                  <div className="portfolio-box">
+                  <div className="portfolio-box ">
                     <Image
                       src={item.image}
                       alt=""

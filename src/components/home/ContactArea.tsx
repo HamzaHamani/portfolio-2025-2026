@@ -1,16 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useTransition, useRef } from "react";
+import { submitContactForm } from "@/actions/contactActions";
 
 export default function ContactArea() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [isPending, startTransition] = useTransition();
+  const [result, setResult] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add form submission logic here
-    console.log("Form submitted:", { name, email, subject, message });
+    const formData = new FormData(e.currentTarget);
+
+    startTransition(async () => {
+      setResult(null);
+      const response = await submitContactForm(formData);
+      setResult(response);
+
+      if (response.success && formRef.current) {
+        // Reset form on success using the ref
+        formRef.current.reset();
+      }
+    });
   };
 
   return (
@@ -34,8 +47,8 @@ export default function ContactArea() {
                   <span className="circle-btn">
                     <i className="ri-map-pin-line"></i>
                   </span>
-                  <h2>our office:</h2>
-                  <p>Unkown</p>
+                  <h2>office:</h2>
+                  <p>My home</p>
                 </div>
 
                 <div
@@ -68,14 +81,17 @@ export default function ContactArea() {
                   <div className="about-social">
                     <ul>
                       <li>
-                        <a target="_blank" href="https://linkedin.com">
+                        <a
+                          target="_blank"
+                          href="https://www.linkedin.com/in/hamzahamani/"
+                        >
                           <i className="ri-linkedin-fill"></i>
                         </a>
                       </li>
                       <li>
                         <a
                           target="_blank"
-                          href="https://github.com/jamilrayhan10"
+                          href="https://github.com/HamzaHamani/"
                         >
                           <i className="ri-github-line"></i>
                         </a>
@@ -89,6 +105,7 @@ export default function ContactArea() {
             <div className="col-lg-8">
               <div className="contact-form contact-form-area wow fadeInUp delay-0-4s">
                 <form
+                  ref={formRef}
                   id="contactForm"
                   className="contact-form"
                   onSubmit={handleSubmit}
@@ -100,9 +117,8 @@ export default function ContactArea() {
                         <input
                           type="text"
                           id="name"
+                          name="name"
                           className="form-control"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
                           placeholder="Steve Milner"
                           required
                           data-error="Please enter your Name"
@@ -119,9 +135,8 @@ export default function ContactArea() {
                         <input
                           type="email"
                           id="email"
+                          name="email"
                           className="form-control"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
                           placeholder="hello@websitename.com"
                           required
                           data-error="Please enter your Email"
@@ -138,9 +153,8 @@ export default function ContactArea() {
                         <input
                           type="text"
                           id="subject"
+                          name="subject"
                           className="form-control"
-                          value={subject}
-                          onChange={(e) => setSubject(e.target.value)}
                           placeholder="Your Subject"
                           required
                           data-error="Please enter your Subject"
@@ -159,8 +173,6 @@ export default function ContactArea() {
                           id="message"
                           className="form-control"
                           rows={4}
-                          value={message}
-                          onChange={(e) => setMessage(e.target.value)}
                           placeholder="Write Your message"
                           required
                           data-error="Please Write your Message"
@@ -170,18 +182,43 @@ export default function ContactArea() {
                     </div>
                     <div className="col-md-12">
                       <div className="form-group mb-0">
-                        <button type="submit" className="theme-btn">
-                          Send Me Message <i className="ri-mail-line"></i>
+                        <button
+                          type="submit"
+                          className="theme-btn"
+                          disabled={isPending}
+                        >
+                          {isPending ? "Sending..." : "Send Me Message"}{" "}
+                          <i className="ri-mail-line"></i>
                         </button>
                         <div id="msgSubmit" className="hidden"></div>
                       </div>
                     </div>
                     <div className="col-md-12 text-center">
-                      <p className="input-success">
+                      <p
+                        className="input-success"
+                        style={{
+                          display: result?.success ? "block" : "none",
+                          backgroundColor: "#16a34a",
+                          color: "white",
+                          padding: "12px 20px",
+                          margin: "15px 0",
+                          border: "none",
+                        }}
+                      >
                         We have received your mail, We will get back to you
                         soon!
                       </p>
-                      <p className="input-error">
+                      <p
+                        className="input-error"
+                        style={{
+                          display: result?.success === false ? "block" : "none",
+                          backgroundColor: "#dc2626",
+                          color: "white",
+                          padding: "12px 20px",
+                          margin: "15px 0",
+                          border: "none",
+                        }}
+                      >
                         Sorry, Message could not send! Please try again.
                       </p>
                     </div>

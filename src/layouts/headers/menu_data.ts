@@ -16,12 +16,12 @@ const menu_data: DataType[] = [
     link: "/",
     has_dropdown: false,
   },
-  {
-    id: 2,
-    title: "About",
-    link: "/about",
-    has_dropdown: false,
-  },
+  // {
+  //   id: 2,
+  //   title: "About",
+  //   link: "/about",
+  //   has_dropdown: false,
+  // },
   {
     id: 3,
     title: "services",
@@ -38,12 +38,12 @@ const menu_data: DataType[] = [
       { link: "/single-project", title: "Single Portfolio" },
     ],
   },
-  {
-    id: 5,
-    title: "Blog",
-    link: "/blog",
-    has_dropdown: false,
-  },
+  // {
+  //   id: 5,
+  //   title: "Blog",
+  //   link: "/blog",
+  //   has_dropdown: false,
+  // },
   {
     id: 6,
     title: "Contact",

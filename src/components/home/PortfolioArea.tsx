@@ -1,7 +1,7 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { useState } from "react";
-import ImagePopup from "@/modals/ImagePopup";
+import React from "react";
+import { ExternalLink } from "lucide-react";
 
 import portfolio_img_1 from "@/assets/images/projects/work1.jpg";
 import portfolio_img_2 from "@/assets/images/projects/work2.jpg";
@@ -64,7 +64,7 @@ const portfolio_data: DataType[] = [
   {
     id: 6,
     col: "6",
-    image: portfolio_img_5,
+    image: portfolio_img_6,
     title: "Bookease",
     category: "Full stack development",
     link: "https://bookeease.netlify.app/",
@@ -80,23 +80,17 @@ const portfolio_data: DataType[] = [
 ];
 
 export default function PortfolioArea() {
-  // photoIndex
-  const [photoIndex, setPhotoIndex] = useState(null);
-  // image open state
-  const [isOpen, setIsOpen] = useState(false);
-  // handleImagePopup
-  const handleImagePopup = (i: any) => {
-    setPhotoIndex(i);
-    setIsOpen(true);
+  const handleProjectClick = (link: string) => {
+    if (link) {
+      window.open(link, "_blank");
+    }
   };
-  //  images
-  const image = portfolio_data.slice(0, 5).map((item) => item.image.src);
 
   return (
     <>
       <div className="projects-area" id="portfolio">
         <div className="custom-icon">
-          <img src="assets/images/custom/work-scribble.svg" alt="custom" />
+          <img src="/assets/images/custom/work-scribble.svg" alt="custom" />
         </div>
         <div className="container-fluid">
           <div className="row g-4 portfolio-grid ">
@@ -105,12 +99,12 @@ export default function PortfolioArea() {
                 key={i}
                 className={`col-md-6 col-xl-${item.col} portfolio-item category-1`}
               >
-                <a
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleImagePopup(i)}
+                <div
+                  style={{ cursor: "pointer", position: "relative" }}
+                  onClick={() => handleProjectClick(item.link)}
                   className="work-popup"
                 >
-                  <div className="portfolio-box ">
+                  <div className="portfolio-box">
                     <Image
                       src={item.image}
                       alt=""
@@ -121,24 +115,88 @@ export default function PortfolioArea() {
                     <div className="portfolio-caption">
                       <h1>{item.title}</h1>
                     </div>
+                    {/* External Link Icon */}
+                    <div
+                      className="external-link-icon"
+                      style={{
+                        position: "absolute",
+                        bottom: "20px",
+                        right: "20px",
+                        opacity: 0,
+                        transition: "opacity 0.3s ease",
+                        color: "#fff",
+                        zIndex: 10,
+                        pointerEvents: "none",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <ExternalLink className="responsive-icon" size={24} />
+                    </div>
                   </div>
-                </a>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* image light box start */}
-      {isOpen && (
-        <ImagePopup
-          images={image}
-          setIsOpen={setIsOpen}
-          photoIndex={photoIndex}
-          setPhotoIndex={setPhotoIndex}
-        />
-      )}
-      {/* image light box end */}
+      <style jsx>{`
+        .portfolio-box:hover .external-link-icon {
+          opacity: 1 !important;
+        }
+        .portfolio-box {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .responsive-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        /* Responsive styles for mobile and tablets */
+        @media (max-width: 768px) {
+          .portfolio-caption h1 {
+            font-size: 1.2rem !important;
+            line-height: 1.3 !important;
+          }
+
+          .portfolio-category {
+            font-size: 0.85rem !important;
+          }
+
+          .external-link-icon {
+            bottom: 15px !important;
+            right: 15px !important;
+          }
+
+          .responsive-icon {
+            width: 20px !important;
+            height: 20px !important;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .portfolio-caption h1 {
+            font-size: 1rem !important;
+            line-height: 1.2 !important;
+          }
+
+          .portfolio-category {
+            font-size: 0.8rem !important;
+          }
+
+          .external-link-icon {
+            bottom: 12px !important;
+            right: 12px !important;
+          }
+
+          .responsive-icon {
+            width: 18px !important;
+            height: 18px !important;
+          }
+        }
+      `}</style>
     </>
   );
 }

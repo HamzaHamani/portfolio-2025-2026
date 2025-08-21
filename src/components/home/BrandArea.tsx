@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import Image from "next/image";
 
 export default function BrandArea() {
   useEffect(() => {
@@ -42,77 +43,98 @@ export default function BrandArea() {
                   data-speed="slow"
                 >
                   <div className="scroller__inner">
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/nextjs.svg"
                       alt="Next.js"
+                      width={60}
+                      height={60}
+                      loading="lazy"
                       style={{
-                        width: "60px",
-                        height: "60px",
                         filter: "brightness(0) invert(1)",
                       }}
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/react.svg"
                       alt="React"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/tailwind.svg"
                       alt="Tailwind CSS"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/javascript.svg"
                       alt="JavaScript"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/nodejs.svg"
                       alt="Node.js"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/typescript.svg"
                       alt="TypeScript"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/figma.svg"
                       alt="Figma"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/mongodb.svg"
                       alt="MongoDB"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/express.svg"
                       alt="Express.js"
+                      width={60}
+                      height={60}
+                      loading="lazy"
                       style={{
-                        width: "60px",
-                        height: "60px",
                         filter: "brightness(0) invert(1)",
                       }}
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/git.svg"
                       alt="Git"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/nextjs.svg"
                       alt="Next.js"
+                      width={60}
+                      height={60}
+                      loading="lazy"
                       style={{
-                        width: "60px",
-                        height: "60px",
                         filter: "brightness(0) invert(1)",
                       }}
                     />
-                    <img
+                    <Image
                       src="/assets/images/tech-logos/react.svg"
                       alt="React"
-                      style={{ width: "60px", height: "60px" }}
+                      width={60}
+                      height={60}
+                      loading="lazy"
                     />
                   </div>
                 </div>

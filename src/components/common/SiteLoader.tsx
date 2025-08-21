@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function SiteLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -7,30 +7,32 @@ export default function SiteLoader() {
 
   useEffect(() => {
     // Prevent scrolling initially
-    document.body.style.overflow = 'hidden';
-    
+    document.body.style.overflow = "hidden";
+
     const checkIfLoaded = () => {
       // Check if document is ready
-      const isDocumentReady = document.readyState === 'complete';
-      
+      const isDocumentReady = document.readyState === "complete";
+
       // Check if all images are loaded
       const images = Array.from(document.images);
-      const allImagesLoaded = images.every(img => img.complete);
-      
+      const allImagesLoaded = images.every((img) => img.complete);
+
       // Check if fonts are loaded (if CSS Font Loading API is available)
-      const fontsLoaded = document.fonts ? document.fonts.ready : Promise.resolve();
-      
+      const fontsLoaded = document.fonts
+        ? document.fonts.ready
+        : Promise.resolve();
+
       return Promise.all([
-        new Promise(resolve => {
+        new Promise((resolve) => {
           if (isDocumentReady) {
             resolve(true);
           } else {
-            window.addEventListener('load', () => resolve(true));
+            window.addEventListener("load", () => resolve(true));
           }
         }),
         fontsLoaded,
         // Additional delay to ensure animations are ready
-        new Promise(resolve => setTimeout(resolve, 500))
+        new Promise((resolve) => setTimeout(resolve, 500)),
       ]);
     };
 
@@ -40,8 +42,8 @@ export default function SiteLoader() {
       setTimeout(() => {
         setIsLoading(false);
         // Restore scrolling
-        document.body.style.overflow = '';
-        document.body.classList.add('site-loaded');
+        document.body.style.overflow = "";
+        document.body.classList.add("site-loaded");
       }, 600); // Wait for fade transition
     };
 
@@ -50,7 +52,7 @@ export default function SiteLoader() {
 
     // Cleanup function
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, []);
 
@@ -59,7 +61,7 @@ export default function SiteLoader() {
   }
 
   return (
-    <div className={`site-loader ${fadeOut ? 'fade-out' : ''}`}>
+    <div className={`site-loader ${fadeOut ? "fade-out" : ""}`}>
       <div className="wrapper">
         <div className="circle"></div>
         <div className="circle"></div>
@@ -76,7 +78,7 @@ export default function SiteLoader() {
           left: 0;
           width: 100vw;
           height: 100vh;
-          background-color: #F4F3ED;
+          background-color: #f4f3ed;
           display: flex;
           justify-content: center;
           align-items: center;

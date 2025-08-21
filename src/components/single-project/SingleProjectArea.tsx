@@ -29,7 +29,14 @@ export default function SingleProjectArea({
     <>
       <div className="single-project-page-design">
         <div className="single-project-image">
-          <img src={projectData.heroImage} alt={projectData.title} />
+          <Image
+            src={projectData.heroImage}
+            alt={projectData.title}
+            width={1200}
+            height={600}
+            priority
+            style={{ width: "100%", height: "auto" }}
+          />
         </div>
         <div className="container pt-60 pb-40">
           <div className="row">

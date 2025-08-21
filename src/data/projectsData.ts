@@ -1,12 +1,28 @@
 import { StaticImageData } from "next/image";
-import img_1 from "@/assets/images/projects/work1.webp";
-import img_2 from "@/assets/images/projects/work2.jpg";
-import img_3 from "@/assets/images/projects/work3.webp";
-import img_4 from "@/assets/images/projects/work4.webp";
-import img_5 from "@/assets/images/projects/work5.webp";
-import img_6 from "@/assets/images/projects/work6.webp";
-import img_7 from "@/assets/images/projects/work7.webp";
+import Mimg_1 from "@/assets/images/projects/management/img1.webp";
+import Mimg_2 from "@/assets/images/projects/management/img2.webp";
+import Mimg_3 from "@/assets/images/projects/management/img3.webp";
+import Mimg_4 from "@/assets/images/projects/management/img4.webp";
 
+import Aimg_1 from "@/assets/images/projects/apex/img1.webp";
+import Aimg_2 from "@/assets/images/projects/apex/img2.webp";
+import Aimg_3 from "@/assets/images/projects/apex/img3.webp";
+import Aimg_4 from "@/assets/images/projects/apex/img4.webp";
+
+import MDimg_1 from "@/assets/images/projects/mdlux/img1.webp";
+import MDimg_2 from "@/assets/images/projects/mdlux/img2.webp";
+import MDimg_3 from "@/assets/images/projects/mdlux/img3.webp";
+import MDimg_4 from "@/assets/images/projects/mdlux/img4.webp";
+
+import HDimg_1 from "@/assets/images/projects/houda/img1.webp";
+import HDimg_2 from "@/assets/images/projects/houda/img2.webp";
+import HDimg_3 from "@/assets/images/projects/houda/img3.webp";
+import HDimg_4 from "@/assets/images/projects/houda/img4.webp";
+
+import MOimg_1 from "@/assets/images/projects/moon/img1.webp";
+import MOimg_2 from "@/assets/images/projects/moon/img2.webp";
+import MOimg_3 from "@/assets/images/projects/moon/img3.webp";
+import MOimg_4 from "@/assets/images/projects/moon/img4.webp";
 export interface ProjectData {
   id: string;
   title: string;
@@ -37,10 +53,10 @@ export const projectsData: Record<string, ProjectData> = {
       "The platform features a modern interface built with React and Next.js, backed by a robust Node.js API. It includes user authentication, role-based access control, document management, and detailed analytics dashboards to help organizations streamline their audit processes.",
     ],
     projectImages: [
-      { id: 1, image: img_1 },
-      { id: 2, image: img_2 },
-      { id: 3, image: img_3 },
-      { id: 4, image: img_4 },
+      { id: 1, image: Mimg_1 },
+      { id: 2, image: Mimg_2 },
+      { id: 3, image: Mimg_3 },
+      { id: 4, image: Mimg_4 },
     ],
     url: "https://managementauditetqualite.com/",
   },
@@ -56,12 +72,12 @@ export const projectsData: Record<string, ProjectData> = {
       "A dynamic website for Cigprod, a leading production company. The platform showcases their portfolio, services, and team with an engaging and professional design.",
       "Built with modern web technologies, the site features responsive design, smooth animations, portfolio galleries, and an integrated contact system. The CMS integration allows the client to easily update content and manage their project portfolio.",
     ],
-    projectImages: [
-      { id: 1, image: img_2 },
-      { id: 2, image: img_1 },
-      { id: 3, image: img_3 },
-      { id: 4, image: img_4 },
-    ],
+    // projectImages: [
+    //   { id: 1, image: img_2 },
+    //   { id: 2, image: img_1 },
+    //   { id: 3, image: img_3 },
+    //   { id: 4, image: img_4 },
+    // ],
     url: "https://cigprod.ma/",
   },
   apexuit: {
@@ -77,10 +93,10 @@ export const projectsData: Record<string, ProjectData> = {
       "Developed using the latest frontend technologies including React, TypeScript, and advanced CSS animations. The site features a clean, minimalist design with smooth transitions and micro-interactions that enhance user engagement.",
     ],
     projectImages: [
-      { id: 1, image: img_3 },
-      { id: 2, image: img_1 },
-      { id: 3, image: img_2 },
-      { id: 4, image: img_4 },
+      { id: 1, image: Aimg_3 },
+      { id: 2, image: Aimg_1 },
+      { id: 3, image: Aimg_2 },
+      { id: 4, image: Aimg_4 },
     ],
     url: "https://apexuit.com/",
   },
@@ -97,10 +113,10 @@ export const projectsData: Record<string, ProjectData> = {
       "The site features a clean, academic design with integrated booking system, publication showcase, and contact forms. Built with accessibility in mind, ensuring the content is available to all users while maintaining a sophisticated visual appeal.",
     ],
     projectImages: [
-      { id: 1, image: img_4 },
-      { id: 2, image: img_1 },
-      { id: 3, image: img_2 },
-      { id: 4, image: img_3 },
+      { id: 1, image: HDimg_1 },
+      { id: 2, image: HDimg_2 },
+      { id: 3, image: HDimg_3 },
+      { id: 4, image: HDimg_4 },
     ],
     url: "https://houdalechheb.com/",
   },
@@ -117,10 +133,10 @@ export const projectsData: Record<string, ProjectData> = {
       "Built with performance in mind, the platform uses advanced frontend optimization techniques, WebSocket integration for real-time communication, and responsive design that works seamlessly across all devices and screen sizes.",
     ],
     projectImages: [
-      { id: 1, image: img_5 },
-      { id: 2, image: img_1 },
-      { id: 3, image: img_2 },
-      { id: 4, image: img_3 },
+      { id: 1, image: MOimg_1 },
+      { id: 2, image: MOimg_2 },
+      { id: 3, image: MOimg_3 },
+      { id: 4, image: MOimg_4 },
     ],
     url: "https://moonplay.live/",
   },
@@ -137,10 +153,10 @@ export const projectsData: Record<string, ProjectData> = {
       "The full-stack application includes user authentication, payment integration, calendar management, automated notifications, and detailed reporting. Built with scalability in mind using modern cloud architecture and database optimization.",
     ],
     projectImages: [
-      { id: 1, image: img_6 },
-      { id: 2, image: img_1 },
-      { id: 3, image: img_2 },
-      { id: 4, image: img_3 },
+      // { id: 1, image: img_6 },
+      // { id: 2, image: img_1 },
+      // { id: 3, image: img_2 },
+      // { id: 4, image: img_3 },
     ],
     url: "https://bookeease.netlify.app/",
   },
@@ -157,10 +173,10 @@ export const projectsData: Record<string, ProjectData> = {
       "The site features high-quality image galleries, interactive destination maps, booking integration, and a content management system. Optimized for performance and SEO to ensure maximum visibility in search engines.",
     ],
     projectImages: [
-      { id: 1, image: img_7 },
-      { id: 2, image: img_1 },
-      { id: 3, image: img_2 },
-      { id: 4, image: img_3 },
+      { id: 1, image: MDimg_1 },
+      { id: 2, image: MDimg_2 },
+      { id: 3, image: MDimg_3 },
+      { id: 4, image: MDimg_4 },
     ],
     url: "https://mdluxtravel.com/",
   },

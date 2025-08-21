@@ -90,7 +90,13 @@ export default function PortfolioArea() {
     <>
       <div className="projects-area" id="portfolio">
         <div className="custom-icon">
-          <img src="/assets/images/custom/work-scribble.svg" alt="custom" />
+          <Image
+            src="/assets/images/custom/work-scribble.svg"
+            alt="custom decoration"
+            width={80}
+            height={80}
+            loading="lazy"
+          />
         </div>
         <div className="container-fluid">
           <div className="row g-4 portfolio-grid ">

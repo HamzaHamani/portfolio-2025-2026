@@ -32,7 +32,7 @@ export interface ProjectData {
   services: string;
   category: string;
   description: string[];
-  projectImages: {
+  projectImages?: {
     id: number;
     image: StaticImageData;
   }[];

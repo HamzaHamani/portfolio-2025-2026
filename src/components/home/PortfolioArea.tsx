@@ -35,7 +35,7 @@ const portfolio_data: DataType[] = [
     image: portfolio_img_2,
     title: "Cigprod",
     category: "Full stack development",
-    link: "/single-project/cigprod",
+    link: "/single-project/cine",
   },
   {
     id: 3,

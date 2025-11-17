@@ -59,7 +59,7 @@ export default function HeroArea() {
             <div className="col-lg-6">
               <div className="hero-image">
                 <Image
-                  src="/assets/images/about/me.jpg"
+                  src="/assets/images/about/photo.webp"
                   alt="Hamza Hamani"
                   width={400}
                   height={500}

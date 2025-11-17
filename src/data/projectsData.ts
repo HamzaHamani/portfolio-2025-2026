@@ -60,24 +60,24 @@ export const projectsData: Record<string, ProjectData> = {
     ],
     url: "https://managementauditetqualite.com/",
   },
-  cigprod: {
-    id: "cigprod",
-    title: "Cigprod",
+  cine: {
+    id: "cine",
+    title: "cine",
     heroImage: "/assets/images/projects/work2.jpg",
     year: "2024",
-    client: "Cigprod",
+    client: "cine",
     services: "Full Stack Development",
     category: "Production Company",
     description: [
       "A dynamic website for Cigprod, a leading production company. The platform showcases their portfolio, services, and team with an engaging and professional design.",
       "Built with modern web technologies, the site features responsive design, smooth animations, portfolio galleries, and an integrated contact system. The CMS integration allows the client to easily update content and manage their project portfolio.",
     ],
-    // projectImages: [
-    //   { id: 1, image: img_2 },
-    //   { id: 2, image: img_1 },
-    //   { id: 3, image: img_3 },
-    //   { id: 4, image: img_4 },
-    // ],
+    projectImages: [
+      { id: 1, image: MOimg_4 },
+      { id: 2, image: MOimg_4 },
+      { id: 3, image: MOimg_4 },
+      { id: 4, image: MOimg_4 },
+    ],
     url: "https://cigprod.ma/",
   },
   apexuit: {

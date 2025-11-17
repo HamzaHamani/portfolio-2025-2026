@@ -1,29 +1,28 @@
 "use client";
-import React, { useState, useTransition, useRef } from "react";
-import { submitContactForm } from "@/actions/contactActions";
+import React, { useState } from "react";
 
 export default function ContactArea() {
-  const [isPending, startTransition] = useTransition();
-  const [result, setResult] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [result, setResult] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  // Following the exact Web3Forms documentation pattern
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target as HTMLFormElement);
+    formData.append("access_key", "7acc6507-bed9-41d1-9d2e-f776a3df57b2");
 
-    startTransition(async () => {
-      setResult(null);
-      const response = await submitContactForm(formData);
-      setResult(response);
-
-      if (response.success && formRef.current) {
-        // Reset form on success using the ref
-        formRef.current.reset();
-      }
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
     });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      (event.target as HTMLFormElement).reset();
+    } else {
+      setResult("Error");
+    }
   };
 
   return (
@@ -105,10 +104,9 @@ export default function ContactArea() {
             <div className="col-lg-8">
               <div className="contact-form contact-form-area wow fadeInUp delay-0-4s">
                 <form
-                  ref={formRef}
                   id="contactForm"
                   className="contact-form"
-                  onSubmit={handleSubmit}
+                  onSubmit={onSubmit}
                 >
                   <div className="row">
                     <div className="col-md-6">
@@ -185,42 +183,39 @@ export default function ContactArea() {
                         <button
                           type="submit"
                           className="theme-btn"
-                          disabled={isPending}
+                          disabled={result === "Sending...."}
                         >
-                          {isPending ? "Sending..." : "Send Me Message"}{" "}
+                          {result === "Sending...." ? "Sending..." : "Send Me Message"}{" "}
                           <i className="ri-mail-line"></i>
                         </button>
                         <div id="msgSubmit" className="hidden"></div>
                       </div>
                     </div>
                     <div className="col-md-12 text-center">
-                      <p
-                        className="input-success"
-                        style={{
-                          display: result?.success ? "block" : "none",
-                          backgroundColor: "#16a34a",
-                          color: "white",
-                          padding: "12px 20px",
-                          margin: "15px 0",
-                          border: "none",
-                        }}
-                      >
-                        We have received your mail, We will get back to you
-                        soon!
-                      </p>
-                      <p
-                        className="input-error"
-                        style={{
-                          display: result?.success === false ? "block" : "none",
-                          backgroundColor: "#dc2626",
-                          color: "white",
-                          padding: "12px 20px",
-                          margin: "15px 0",
-                          border: "none",
-                        }}
-                      >
-                        Sorry, Message could not send! Please try again.
-                      </p>
+                      {result && (
+                        <p
+                          className="form-result"
+                          style={{
+                            display: "block",
+                            backgroundColor: result.includes("Successfully") 
+                              ? "#16a34a" 
+                              : result === "Sending...." 
+                                ? "#2563eb"
+                                : "#dc2626",
+                            color: "white",
+                            padding: "12px 20px",
+                            margin: "15px 0",
+                            border: "none",
+                            borderRadius: "4px",
+                          }}
+                        >
+                          {result === "Form Submitted Successfully" 
+                            ? "Message sent successfully! I'll get back to you soon."
+                            : result === "Error"
+                              ? "Sorry, message could not be sent. Please try again."
+                              : result}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </form>

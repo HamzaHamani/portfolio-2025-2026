@@ -15,15 +15,26 @@ export async function submitContactForm(formData: FormData) {
       };
     }
 
-    // Prepare form data for Web3Forms
+    // Check if access key is configured
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+    if (!accessKey || accessKey === "your_web3forms_access_key_here") {
+      console.error("Web3Forms access key not configured");
+      return {
+        success: false,
+        message:
+          "Contact form is not properly configured. Please try again later.",
+      };
+    }
+
+    // Prepare FormData for Web3Forms (exactly like the docs example)
     const web3FormData = new FormData();
-    web3FormData.append("access_key", process.env.WEB3FORMS_ACCESS_KEY!);
+    web3FormData.append("access_key", accessKey);
     web3FormData.append("name", name);
     web3FormData.append("email", email);
     web3FormData.append("subject", subject);
     web3FormData.append("message", message);
 
-    // Submit to Web3Forms
+    // Submit to Web3Forms using FormData (no custom headers)
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: web3FormData,

@@ -13,7 +13,7 @@ export default function ContactArea() {
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: formData
+      body: formData,
     });
 
     const data = await response.json();
@@ -185,7 +185,9 @@ export default function ContactArea() {
                           className="theme-btn"
                           disabled={result === "Sending...."}
                         >
-                          {result === "Sending...." ? "Sending..." : "Send Me Message"}{" "}
+                          {result === "Sending...."
+                            ? "Sending..."
+                            : "Send Me Message"}{" "}
                           <i className="ri-mail-line"></i>
                         </button>
                         <div id="msgSubmit" className="hidden"></div>
@@ -197,11 +199,11 @@ export default function ContactArea() {
                           className="form-result"
                           style={{
                             display: "block",
-                            backgroundColor: result.includes("Successfully") 
-                              ? "#16a34a" 
-                              : result === "Sending...." 
-                                ? "#2563eb"
-                                : "#dc2626",
+                            backgroundColor: result.includes("Successfully")
+                              ? "#16a34a"
+                              : result === "Sending...."
+                              ? "#2563eb"
+                              : "#dc2626",
                             color: "white",
                             padding: "12px 20px",
                             margin: "15px 0",
@@ -209,11 +211,11 @@ export default function ContactArea() {
                             borderRadius: "4px",
                           }}
                         >
-                          {result === "Form Submitted Successfully" 
+                          {result === "Form Submitted Successfully"
                             ? "Message sent successfully! I'll get back to you soon."
                             : result === "Error"
-                              ? "Sorry, message could not be sent. Please try again."
-                              : result}
+                            ? "Sorry, message could not be sent. Please try again."
+                            : result}
                         </p>
                       )}
                     </div>

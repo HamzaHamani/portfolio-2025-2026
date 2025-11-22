@@ -60,16 +60,16 @@ export const projectsData: Record<string, ProjectData> = {
     ],
     url: "https://managementauditetqualite.com/",
   },
-  cine: {
-    id: "cine",
-    title: "cine",
+  oldportfolio: {
+    id: "oldportfolio",
+    title: "Oldportfolio",
     heroImage: "/assets/images/projects/work2.jpg",
     year: "2024",
     client: "cine",
     services: "Full Stack Development",
     category: "Production Company",
     description: [
-      "A dynamic website for Cigprod, a leading production company. The platform showcases their portfolio, services, and team with an engaging and professional design.",
+      "A dynamic website for OldPortfolio, a leading production company. The platform showcases their portfolio, services, and team with an engaging and professional design.",
       "Built with modern web technologies, the site features responsive design, smooth animations, portfolio galleries, and an integrated contact system. The CMS integration allows the client to easily update content and manage their project portfolio.",
     ],
     projectImages: [

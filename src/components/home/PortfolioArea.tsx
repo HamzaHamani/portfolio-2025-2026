@@ -29,17 +29,17 @@ const portfolio_data: DataType[] = [
     category: "Full stack development",
     link: "/single-project/managementauditequalite",
   },
+  // {
+  //   id: 2,
+  //   col: "6",
+  //   image: portfolio_img_2,
+  //   title: "Old Portfolio",
+  //   category: "Full stack development",
+  //   link: "/single-project/oldportfolio",
+  // },
   {
     id: 2,
     col: "6",
-    image: portfolio_img_2,
-    title: "Cigprod",
-    category: "Full stack development",
-    link: "/single-project/cine",
-  },
-  {
-    id: 3,
-    col: "4",
     image: portfolio_img_3,
     title: "Apex uit",
     category: "Front end development",
@@ -47,7 +47,7 @@ const portfolio_data: DataType[] = [
   },
   {
     id: 4,
-    col: "4",
+    col: "6",
     image: portfolio_img_4,
     title: "Houda lechheb",
     category: "Front end development",
@@ -55,7 +55,7 @@ const portfolio_data: DataType[] = [
   },
   {
     id: 5,
-    col: "4",
+    col: "6",
     image: portfolio_img_5,
     title: "Moonplay",
     category: "Front end development",
@@ -88,14 +88,18 @@ export default function PortfolioArea() {
 
   return (
     <>
-      <div className="projects-area" id="portfolio">
-        <div className="custom-icon">
+      <div
+        className="projects-area mx-auto md:mx-0 flex justify-center md:justify-start scale-200"
+        id="portfolio"
+      >
+        <div className="custom-icon ">
           <Image
             src="/assets/images/custom/work-scribble.svg"
             alt="custom decoration"
-            width={80}
-            height={80}
+            width={200}
+            height={200}
             loading="lazy"
+            className="block"
           />
         </div>
         <div className="container-fluid">

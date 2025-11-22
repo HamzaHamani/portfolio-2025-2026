@@ -22,7 +22,7 @@ export default function HeaderOne() {
                     <div className="logo">
                       <Link href="/">
                         <Image
-                          src="/assets/images/logo.png"
+                          src="/logo.png"
                           alt="Hamza Hamani Logo"
                           width={120}
                           height={40}

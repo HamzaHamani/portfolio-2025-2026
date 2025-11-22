@@ -22,8 +22,10 @@ export default function SingleProjectArea({
   };
   //  images
   const image = projectData.projectImages
-    .slice(0, 5)
-    .map((item) => item.image.src);
+    ? projectData.projectImages
+        .slice(0, 5)
+        .map((item) => item.image.src)
+    : [];
 
   return (
     <>
@@ -78,7 +80,7 @@ export default function SingleProjectArea({
           </div>
 
           <div className="row pt-60">
-            {projectData.projectImages.map((item, i) => (
+            {projectData.projectImages?.map((item, i) => (
               <div key={item.id} className="col-lg-6">
                 <a
                   style={{ cursor: "pointer" }}

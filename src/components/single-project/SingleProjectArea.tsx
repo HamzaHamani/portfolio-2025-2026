@@ -22,9 +22,7 @@ export default function SingleProjectArea({
   };
   //  images
   const image = projectData.projectImages
-    ? projectData.projectImages
-        .slice(0, 5)
-        .map((item) => item.image.src)
+    ? projectData.projectImages.slice(0, 5).map((item) => item.image.src)
     : [];
 
   return (
